@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Pyramid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        h1 {
+            color: #2e7d32; /* Deep green color */
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 600px;
+            border: 1px solid black;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Styling the header section */
+        thead {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        .food-group-col {
+            text-align: left;
+            width: 50%;
+        }
+
+        .food-description {
+            font-style: italic;
+            font-weight: normal;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        /* Left-aligning the first column of the body */
+        tbody td:first-child {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>USDA Food Pyramid</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Food Group</th>
+                <th colspan="2">Serving Guidelines</th>
+            </tr>
+            <tr>
+                <th>2005-2010</th>
+                <th>2011-present</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Dairy</strong><br><span class="food-description">(milk, yogurt, cheese)</span></td>
+                <td>2-3</td>
+                <td>3-4</td>
+            </tr>
+            <tr>
+                <td><strong>Meat and Beans</strong><br><span class="food-description">(beef, poultry, fish, beans)</span></td>
+                <td>2-3</td>
+                <td>5-6</td>
+            </tr>
+            <tr>
+                <td><strong>Fruits</strong></td>
+                <td>2-4</td>
+                <td>2-4</td>
+            </tr>
+            <tr>
+                <td><strong>Vegetables</strong></td>
+                <td>3-5</td>
+                <td>1-2</td>
+            </tr>
+            <tr>
+                <td><strong>Grains</strong><br><span class="food-description">(bread, donuts, pop tarts)</span></td>
+                <td>1-2</td>
+                <td>3-5</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
