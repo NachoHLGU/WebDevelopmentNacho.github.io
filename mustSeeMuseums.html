@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Must-See Museums</title>
+
+<style>
+
+body{
+    font-family: Georgia, serif;
+}
+
+/* Remove underline from links */
+a{
+    text-decoration: none;
+    color: blue;
+    padding: 2px;
+}
+
+/* Hover effect */
+a:hover{
+    background-color: silver;
+}
+
+/* Grid layout */
+.grid-container{
+    display: grid;
+    grid-template-columns: 150px auto;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.city{
+    font-size: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Must-See Museums</h1>
+
+<p>
+<a href="#ny">New York</a> |
+<a href="#ch">Chicago</a> |
+<a href="#kc">Kansas City</a>
+</p>
+
+<img src="museum.jpg" alt="Museum" width="600">
+
+<div class="grid-container">
+
+<div class="city" id="ny">New York:</div>
+<div>
+<a href="https://www.metmuseum.org/">The Met</a><br>
+<a href="https://www.amnh.org/">American Museum of Natural History</a>
+</div>
+
+<div class="city" id="ch">Chicago:</div>
+<div>
+<a href="https://www.artic.edu/">Art Institute of Chicago</a><br>
+<a href="https://www.fieldmuseum.org/">Field Museum</a>
+</div>
+
+<div class="city" id="kc">Kansas City:</div>
+<div>
+<a href="https://www.nelson-atkins.org/">Nelson-Atkins Museum</a><br>
+<a href="https://www.unionstation.org/sciencecity/">Science City</a>
+</div>
+
+</div>
+
+</body>
+</html>
