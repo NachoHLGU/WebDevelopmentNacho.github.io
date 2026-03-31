@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPG Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: inline-block; width: 150px; }
+        input[disabled] { background-color: #f0f0f0; border: 1px solid #ccc; }
+        i { font-style: italic; }
+    </style>
+</head>
+<body>
 
+    <h1>MPG Calculator</h1>
+    <p>Enter your mileage and fuel data, then click <i>Calculate</i> to see your results.</p>
+
+    <form id="mpgForm">
+        <div class="input-group">
+            <label for="startMiles">Starting Miles:</label>
+            <input type="number" id="startMiles" min="0" max="400000" step="1" required>
+        </div>
+
+        <div class="input-group">
+            <label for="endMiles">Ending Miles:</label>
+            <input type="number" id="endMiles" min="0" max="400000" step="1" required>
+        </div>
+
+        <div class="input-group">
+            <label for="gallons">Gallons Used:</label>
+            <input type="number" id="gallons" min="0.1" max="40" step="0.1" required>
+        </div>
+
+        <div class="input-group">
+            <label for="mpgResult">Miles Per Gallon:</label>
+            <input type="text" id="mpgResult" disabled>
+        </div>
+
+        <button type="button" onclick="calculateMPG()">Calculate</button>
+        <button type="reset" onclick="clearResult()">Reset</button>
+    </form>
+
+    <script>
+        function calculateMPG() {
+            // Get references to elements
+            const startInput = document.getElementById('startMiles');
+            const endInput = document.getElementById('endMiles');
+            const gallonsInput = document.getElementById('gallons');
+            const resultInput = document.getElementById('mpgResult');
+
+            // Clear previous result
+            resultInput.value = "";
+
+            // Convert values to numbers
+            const start = parseFloat(startInput.value);
+            const end = parseFloat(endInput.value);
+            const gallons = parseFloat(gallonsInput.value);
+
+            let errorMessages = [];
+
+            // 1. Validate Start Miles range using min/max properties
+            if (isNaN(start) || start < startInput.min || start > startInput.max) {
+                errorMessages.push(`Starting miles must be an integer between ${startInput.min} and ${startInput.max}.`);
+            }
+
+            // 2. Validate End Miles range using min/max properties
+            if (isNaN(end) || end < endInput.min || end > endInput.max) {
+                errorMessages.push(`Ending miles must be an integer between ${endInput.min} and ${endInput.max}.`);
+            }
+
+            // 3. Validate Gallons range and decimal place
+            if (isNaN(gallons) || gallons < gallonsInput.min || gallons > gallonsInput.max) {
+                errorMessages.push(`Gallons must be between ${gallonsInput.min} and ${gallonsInput.max}.`);
+            }
+
+            // 4. Validate Logic: Start vs End
+            if (!isNaN(start) && !isNaN(end) && start > end) {
+                errorMessages.push("Starting miles cannot be greater than ending miles.");
+            }
+
+            // Display errors or calculate
+            if (errorMessages.length > 0) {
+                alert(errorMessages.join("\n"));
+            } else {
+                const totalMiles = end - start;
+                const mpg = totalMiles / gallons;
+                // Displaying with 2 decimal places for readability
+                resultInput.value = mpg.toFixed(2);
+            }
+        }
+
+        function clearResult() {
+            document.getElementById('mpgResult').value = "";
+        }
+    </script>
+</body>
+</html>
