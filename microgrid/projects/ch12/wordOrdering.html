@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Ordering</title>
+    <script src="wordOrdering.js" defer></script>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 20px;
+        }
+        h3 {
+            margin-bottom: 20px;
+        }
+        #wordList {
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-right: 5px;
+            padding: 3px 8px;
+        }
+        #message {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Word Ordering</h1>
+    
+    <h3>Enter a list of words separated by spaces.</h3>
+
+    <p>
+        <label for="wordList">Word list: </label>
+        <input type="text" id="wordList">
+    </p>
+
+    <p>
+        <button id="btnAlphabetical">Alphabetical</button>
+        <button id="btnReverse">Reverse alphabetical</button>
+        <button id="btnRandom">Random</button>
+    </p>
+
+    <div id="message"></div>
+
+</body>
+</html>
